@@ -20,7 +20,19 @@
 
 <h2>My name is ${name}</h2>
 <h2>My password is ${password}</h2>
+<p><font color="red">${errorMessage}</font></p>
+<form action="/toDoApp_war_exploded/login.do" method="post">
+    Enter your name <input type="text" name="name"> <br>
+    Enter your password <input type="password" name="password"> <br>
+    <input type="submit" value="login">
+</form>
 
 
+
+<%--<button value="next">--%>
+<%--    <%--%>
+<%--    request.getRequestDispatcher("WEB-INF/views/Dashboard.jsp").forward(request,response);--%>
+<%--%>--%>
+<%--</button>--%>
 </body>
 </html>
