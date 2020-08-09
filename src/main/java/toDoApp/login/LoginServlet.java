@@ -24,16 +24,17 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        response.sendRedirect("/toDoApp_war_exploded/todo.do");
 
-//       boolean isUserValid = loginService.isUserValid(request.getParameter("name"),request.getParameter("password"));
-//       if (isUserValid){
-//          response.sendRedirect("/todo.do");
-//
-//       }else {
-//           request.setAttribute("errorMessage","Invalid Credentials");
-//           request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
-//       }
+
+       boolean isUserValid = loginService.isUserValid(request.getParameter("name"),request.getParameter("password"));
+       if (isUserValid){
+           request.getSession().setAttribute("name",request.getParameter("name"));
+           response.sendRedirect("/toDoApp_war_exploded/todo.do");
+
+       }else {
+           request.setAttribute("errorMessage","Invalid Credentials");
+           request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
+       }
 
 
     }

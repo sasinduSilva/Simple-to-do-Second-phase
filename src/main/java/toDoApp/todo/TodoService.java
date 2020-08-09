@@ -10,6 +10,7 @@ public class TodoService {
         todos.add(new Todo("Learn Web Application Development"));
         todos.add(new Todo("Learn Spring MVC"));
         todos.add(new Todo("Learn Spring Rest Services"));
+        todos.add(new Todo("Finish this app"));
 
 
 
@@ -19,4 +20,19 @@ public class TodoService {
     public List<Todo> retrieveTodos(){
         return todos;
     }
+
+
+
+    public void addTodo(Todo todo){
+        todos.add(todo);
+
+    }
+
+
+    public void deleteTodo(Todo todo){
+        todos.remove(todo);
+
+    }
+
 }
+

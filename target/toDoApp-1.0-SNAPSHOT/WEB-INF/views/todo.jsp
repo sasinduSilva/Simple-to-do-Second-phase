@@ -12,15 +12,22 @@
     <title>toDo</title>
 </head>
 <body>
+<h1>Welcome ${name}</h1>
 <p>your todos are:</p><br>
 
 <ol>
     <c:forEach items="${todos}" var="todo">
-        <li>${todo.name}</li>
+        <li>${todo.name} &nbsp; &nbsp; <a href="/toDoApp_war_exploded/delete-todo.do?todo=${todo.name}">Delete</a></li>
 
     </c:forEach>
 
 
 </ol>
+
+
+
+<form action="/toDoApp_war_exploded/todo.do" method="post">
+    <input type="text" name="todo"/> <input type="submit" value="add"/>
+</form>
 </body>
 </html>
