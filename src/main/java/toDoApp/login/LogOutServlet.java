@@ -1,4 +1,4 @@
-package toDoApp.todo;
+package toDoApp.login;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,15 +6,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.rmi.ServerException;
 
-@WebServlet(urlPatterns = "/delete-todo.do")
-public class DeleteTodoServlet extends HttpServlet {
-
-        TodoService todoService = new TodoService();
+@WebServlet(urlPatterns = "/log_out.do")
+public class LogOutServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        todoService.deleteTodo(new Todo(request.getParameter("todo"),request.getParameter("category")));
-        response.sendRedirect("/toDoApp_war_exploded/list_todo.do");
-
-
+        request.getSession().invalidate();
+        request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
     }
 }
